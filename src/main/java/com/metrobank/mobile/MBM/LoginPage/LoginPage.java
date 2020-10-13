@@ -3,6 +3,7 @@ package main.java.com.metrobank.mobile.MBM.LoginPage;
 import org.openqa.selenium.By;
 
 import main.java.com.metrobank.mobile.core.locator.Locators;
+import main.java.com.metrobank.mobile.core.logger.LogGeneration;
 import main.java.com.metrobank.mobile.core.utilities.PropertyFileHandler;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -10,12 +11,13 @@ import io.appium.java_client.MobileElement;
 public class LoginPage {
 	
 	PropertyFileHandler propertyFileHandler = new PropertyFileHandler(Locators.LOGINPAGE);
+	LogGeneration logGeneration = new LogGeneration();
 	
 	
 	public void inputUsername(AppiumDriver<MobileElement> driver, String value){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("username_xpath"))).sendKeys(value);
 	}
-
+	
 	public void inputPassword(AppiumDriver<MobileElement> driver, String value){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("password_xpath"))).sendKeys(value);
 	}
@@ -49,6 +51,7 @@ public class LoginPage {
 
 	}
 	
+
 	public void enterAccountAlias(AppiumDriver<MobileElement> driver, String value){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("account_alias_xpath"))).sendKeys(value);
 
@@ -93,6 +96,16 @@ public class LoginPage {
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("create_enter_password_xpath"))).sendKeys(value);
 
 	}
+	
+	public String getErrorMessage(AppiumDriver<MobileElement> driver) {
+		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("error_message_xpath"))).getText();
+		return value; 
+	}
+	
+	
+	
+	
+	
 	
 	
 }

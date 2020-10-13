@@ -1,45 +1,29 @@
 package main.java.com.metrobank.mobile.MBM.DashBoard;
 
-import java.util.HashMap;
-
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.touch.LongPressAction;
-import org.openqa.selenium.interactions.touch.TouchActions;
-import org.openqa.selenium.support.FindBy;
 
-import main.java.com.metrobank.mobile.core.base.AutomationConstants;
 import main.java.com.metrobank.mobile.core.locator.Locators;
 import main.java.com.metrobank.mobile.core.utilities.PropertyFileHandler;
 import main.java.com.metrobank.mobile.core.utilities.TestUtil;
 
 public class DashBoard {
-	
-	@FindBy(xpath = "//*[@text="+'"'+ "Logout" + '"' + "]") 
-	WebElement logout;
-	
+
 	PropertyFileHandler propertyFileHandler = new PropertyFileHandler(Locators.DASHBOARD);
 	
-	public void clickHamburgerMenu(AppiumDriver<MobileElement> driver){
-		driver.findElement(By.xpath(propertyFileHandler.GetValue("hamburger_menu_xpath"))).click();
+	public void clickDashBoardMenu(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("dashboard_menu_xpath"))).click();
 	}
 	
 	public void clickDepositMenu(AppiumDriver<MobileElement> driver){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("depposit_menu_xpath"))).click();
 	}
 	
-	public void clickCustomizeMenu(AppiumDriver<MobileElement> driver){
+	public void clickCustomizePath(AppiumDriver<MobileElement> driver){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("customize_xpath"))).click();
 	}
-	
 	
 	public void clickWidgetDeposit(AppiumDriver<MobileElement> driver){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("widget_deposit_xpath"))).click();
@@ -114,35 +98,39 @@ public class DashBoard {
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("cancel_btn_xpath"))).click();
 	}
 	
+	public void clickLogoutBtnDashboard(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("dashboard_logout_xpath"))).click();
+	}
+	
+	public void confirmLogout(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("confirm_logout_xpath"))).click();
+	}
+	
+	public void endSessionLogOut(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("end_session_logout_xpath"))).click();
+	}
+	
+	public void continueSession(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("continue_session_btn_xpath"))).click();
+	}
+	
+	public void clickOKbtn(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("ok_btn_xpath"))).click();
+	}
+	
 	public void clickAddShortCut(AppiumDriver<MobileElement> driver){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("add_shortcut_xpath"))).click();
 	}
-
+	
 	
 	public String getDepositaccountDashBoard(AppiumDriver<MobileElement> driver){
 		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_number_xpath"))).getText();
 		return value;
 	}
 	
-	public String getDepositAvailableBalanceDashboard(AppiumDriver<MobileElement> driver){
-		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_available_balance_xpath"))).getText();
+	public String getAvailableBalanceDashboard(AppiumDriver<MobileElement> driver){
+		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("available_balance_xpath"))).getText();
 		return value;
-	}
-	
-	public String getDepositAccountTypeDashboard(AppiumDriver<MobileElement> driver){
-		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_accountType_xpath"))).getText();
-		return value;
-	}
-	
-	public String getDepositAccountCurrencyDashboard(AppiumDriver<MobileElement> driver){
-		String value =driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_currency_xpath"))).getText();
-		return value;
-	}
-	
-	public String getDepositAccountTagDashboard(AppiumDriver<MobileElement> driver){
-		String value =driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_tag_xpath"))).getText();
-		return value;
-	
 	}
 	
 	public String getCreditAccount(AppiumDriver<MobileElement> driver){
@@ -165,19 +153,23 @@ public class DashBoard {
 		return value;
 	}
 	
+	public String getPrimaryAccountNumber(AppiumDriver<MobileElement> driver) {
+		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("account_number_xpath"))).getText();
+		return value; 
+	}
+	
+	public String getCheckingAccountNumber(AppiumDriver<MobileElement> driver) {
+		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("checking_account_number_xpath"))).getText();
+		return value; 
+	}
+	
+	public boolean VerifySuccessfulLogin(AppiumDriver<MobileElement> driver) {
+		boolean value = driver.findElement(By.xpath(propertyFileHandler.GetValue("verifyDashboardView_xpath"))).isDisplayed();
+		return value;
+	}
+	
 	public String getDepositWidgetText(AppiumDriver<MobileElement> driver){
 		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_widget_xpath"))).getText();
-		return value;
-	}
-	
-	public String getPrepaidAccountWidgetText(AppiumDriver<MobileElement> driver){
-		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("prepaid_card_xpath"))).getText();
-		return value;
-	}
-
-	
-	public String getErrorMessageWidget(AppiumDriver<MobileElement> driver){
-		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("widget_error_message_xpath"))).getText();
 		return value;
 	}
 	
@@ -744,7 +736,13 @@ public class DashBoard {
 		}
 	}
 	
-
+	public void clickCustomizeMenu(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("customize_xpath"))).click();
+	}
+	
+	public void clickHamburgerMenu(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("hamburger_menu_xpath"))).click();
+	}
 	
 	public void clickDisplayOptionsMenu(AppiumDriver<MobileElement> driver){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("display_option_menu_xpath"))).click();
@@ -761,5 +759,31 @@ public class DashBoard {
 	public void clickhamburgerMenuMyAccounts(AppiumDriver<MobileElement> driver){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("my_accounts_hamburger_xpath"))).click();
 	}
-
+	
+	public String getErrorMessageWidget(AppiumDriver<MobileElement> driver){
+		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("widget_error_message_xpath"))).getText();
+		return value;
+	}
+	
+	public String getDepositAvailableBalanceDashboard(AppiumDriver<MobileElement> driver){
+		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_available_balance_xpath"))).getText();
+		return value;
+	}
+	
+	public String getDepositAccountTypeDashboard(AppiumDriver<MobileElement> driver){
+		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_accountType_xpath"))).getText();
+		return value;
+	}
+	
+	public String getDepositAccountCurrencyDashboard(AppiumDriver<MobileElement> driver){
+		String value =driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_currency_xpath"))).getText();
+		return value;
+	}
+	
+	public String getDepositAccountTagDashboard(AppiumDriver<MobileElement> driver){
+		String value =driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_tag_xpath"))).getText();
+		return value;
+	
+	}
+	
 }
