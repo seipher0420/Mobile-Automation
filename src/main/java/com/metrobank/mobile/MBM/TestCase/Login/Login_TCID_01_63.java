@@ -64,9 +64,11 @@ public class Login_TCID_01_63 extends MobileConnection{
 		}
 		
 		dashboard.clickLogoutBtnDashboard(driver);
-		Thread.sleep(1000);
+			logGeneration.inputLogs(LogType.info, "Click on LOGOUT button",  null);
+			TestUtil.waitTime(1);
 		dashboard.confirmLogout(driver);
-		Thread.sleep(3000);
+			logGeneration.inputLogs(LogType.info, "Click on CONFIRM LOGOUT button",  null);
+			TestUtil.waitTime(3);
 		
 		// SMALL LETTERS USERNAME
 		loginPage.inputUsername(driver, username_smallLetters);
@@ -84,9 +86,11 @@ public class Login_TCID_01_63 extends MobileConnection{
 		}
 		
 		dashboard.clickLogoutBtnDashboard(driver);
-		Thread.sleep(1000);
+			logGeneration.inputLogs(LogType.info, "Click on LOGOUT button",  null);
+			TestUtil.waitTime(1);
 		dashboard.confirmLogout(driver);
-		Thread.sleep(3000);
+			logGeneration.inputLogs(LogType.info, "Click on CONFIRM LOGOUT button",  null);
+			TestUtil.waitTime(3);
 		
 		
 		// COMBINATION LETTERS USERNAME
@@ -105,8 +109,11 @@ public class Login_TCID_01_63 extends MobileConnection{
 		}
 		
 		dashboard.clickLogoutBtnDashboard(driver);
-		Thread.sleep(1000);
+			logGeneration.inputLogs(LogType.info, "Click on LOGOUT button",  null);
+			TestUtil.waitTime(1);
 		dashboard.confirmLogout(driver);
+			logGeneration.inputLogs(LogType.info, "Click on CONFIRM LOGOUT button",  null);
+//			TestUtil.waitTime(3);
 		
 		logGeneration.extentFlush();
 		driver.quit();

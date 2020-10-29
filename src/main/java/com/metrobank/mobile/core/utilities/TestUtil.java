@@ -3,16 +3,37 @@ package main.java.com.metrobank.mobile.core.utilities;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
-
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
 import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import main.java.com.metrobank.mobile.core.base.AutomationConstants;
+import main.java.com.metrobank.mobile.core.base.MobileConnection;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
@@ -119,6 +140,10 @@ public class TestUtil {
 			Thread.sleep(10000);
 			break;
 			
+		case 15:
+			Thread.sleep(15000);
+			break;
+			
 		default:
 			Thread.sleep(1000);
 			System.out.println(AutomationConstants.FRAMEWORK_LOGS
@@ -210,11 +235,30 @@ public class TestUtil {
 			int top_y = (int)(height*0.80);
 			int bottom_y = (int)(height*yAxis);
 			System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
+//			TouchAction ts = new TouchAction(driver);
 			TouchAction ts = new TouchAction(driver);
-			ts.press(x, top_y).moveTo(x, bottom_y).release().perform();
-			
+			ts.press(PointOption.point(x, top_y))
+				.waitAction(new WaitOptions().withDuration(Duration.ofMillis(600)))
+				.moveTo(PointOption.point(x, bottom_y))
+				.release()
+				.perform();
 	 }
 	 
+	 public static KeyEvent GetKeyEvent(char key) {
+		switch (key) {
+			case '1' : return new KeyEvent(AndroidKey.DIGIT_1);
+			case '2' : return new KeyEvent(AndroidKey.DIGIT_2);
+			case '3' : return new KeyEvent(AndroidKey.DIGIT_3);
+			case '4' : return new KeyEvent(AndroidKey.DIGIT_4);
+			case '5' : return new KeyEvent(AndroidKey.DIGIT_5);
+			case '6' : return new KeyEvent(AndroidKey.DIGIT_6);
+			case '7' : return new KeyEvent(AndroidKey.DIGIT_7);
+			case '8' : return new KeyEvent(AndroidKey.DIGIT_8);
+			case '9' : return new KeyEvent(AndroidKey.DIGIT_9);
+			case '0' : return new KeyEvent(AndroidKey.DIGIT_0);
+			default : return new KeyEvent(AndroidKey.DIGIT_0);			
+		}
+	}
 	  
 
 }

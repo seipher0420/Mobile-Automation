@@ -164,8 +164,12 @@ public class DashBoard {
 	}
 	
 	public boolean VerifySuccessfulLogin(AppiumDriver<MobileElement> driver) {
-		boolean value = driver.findElement(By.xpath(propertyFileHandler.GetValue("verifyDashboardView_xpath"))).isDisplayed();
-		return value;
+		try {
+			boolean value = driver.findElement(By.xpath(propertyFileHandler.GetValue("verifyDashboardView_xpath"))).isDisplayed();
+			return value;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	public String getDepositWidgetText(AppiumDriver<MobileElement> driver){
@@ -388,24 +392,31 @@ public class DashBoard {
 	
 	public Boolean myAccountCreditMenuIsDisplayed(
 			AppiumDriver<MobileElement> driver) {
-		
-		if (driver.findElement(
-				By.xpath(propertyFileHandler.GetValue("my_account_deposit_xpath")))
-				.getText() != null) {
-			return true;
-		} else {
+		try {
+			if (driver.findElement(
+					By.xpath(propertyFileHandler.GetValue("my_account_credit_xpath")))
+					.getText() != null) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
 			return false;
 		}
+		
 	}
 	
 	public Boolean myAccountPrepaidMenuIsDisplayed(
 			AppiumDriver<MobileElement> driver) {
-		
-		if (driver.findElement(
-				By.xpath(propertyFileHandler.GetValue("my_account_prepaid_xpath")))
-				.getText() != null) {
-			return true;
-		} else {
+		try {
+			if (driver.findElement(
+					By.xpath(propertyFileHandler.GetValue("my_account_prepaid_xpath")))
+					.getText() != null) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
 			return false;
 		}
 	}
@@ -513,7 +524,7 @@ public class DashBoard {
 		try {
 			if (driver.findElement(
 					By.xpath(propertyFileHandler
-							.GetValue("widget_activity_log_xpath"))).getText() != null) {
+							.GetValue("verify_widget_activity_log_xpath"))).getText() != null) {
 				return true;
 			} else {
 				return false;
@@ -784,6 +795,28 @@ public class DashBoard {
 		String value =driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_tag_xpath"))).getText();
 		return value;
 	
+	}
+	
+	/////// My Accounts
+	public void clickMyAccountsEnroll(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("enroll_btn_xpath"))).click();
+	}
+	
+	public Boolean isErrorSessionOnAnotherBrowserDisplayed(AppiumDriver<MobileElement> driver){
+		try{
+			if(driver.findElement(By.xpath(propertyFileHandler.GetValue("errMsg_other_session_ended_xpath"))).getText() != null){
+				return true;
+			} else {
+				return false;
+			}
+		}catch(Exception e){
+			return false;
+		}
+	}
+	
+	public void clickOkaybutton(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("errMsg_okay_btn_xpath"))).click();
+
 	}
 	
 }

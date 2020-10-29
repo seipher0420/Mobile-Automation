@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import main.java.com.metrobank.mobile.MBM.DashBoard.DashBoard;
 import main.java.com.metrobank.mobile.MBM.LoginPage.LoginPage;
+import main.java.com.metrobank.mobile.MBM.TestCase.Common.CommonMethods;
 import main.java.com.metrobank.mobile.core.base.MobileConnection;
 import main.java.com.metrobank.mobile.core.base.Enums.LogType;
 import main.java.com.metrobank.mobile.core.logger.LogGeneration;
@@ -52,19 +53,7 @@ public class Logout_TCID_01_04 extends MobileConnection{
 		Thread.sleep(5000);
 		
 		//Script starts here
-		loginPage.inputUsername(driver, username);
-		Thread.sleep(5000);
-		loginPage.inputPassword(driver, password);
-		Thread.sleep(5000);
-		loginPage.clickLoginBtn(driver);
-		Thread.sleep(10000);
-		
-		// Validations
-		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, "Login Successful!",  null);
-		} else {
-			logGeneration.inputLogs(LogType.pass, "Login Failed!",  TestUtil.getScreenshot(driver));
-		}
+		CommonMethods.Login(driver, username, password);
 		
 		int timer = 180;
 		while (timer > 0) {
