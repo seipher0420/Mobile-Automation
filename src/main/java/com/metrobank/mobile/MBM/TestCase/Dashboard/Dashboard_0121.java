@@ -39,40 +39,44 @@ public class Dashboard_0121 extends MobileConnection{
 		loginPage.clickLoginBtn(driver);
 		logGeneration.inputLogs(LogType.info, "Click Login Button", null);
 		Thread.sleep(15000);
-		
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		logGeneration.inputLogs(LogType.info, "Dashboard is displayed", null);
 		
 		try{
 			Assert.assertTrue(dashboard.navigationDashBoardIsDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Navigation Dashboard Button is displayed", null);
+			logGeneration.inputLogs(LogType.pass, "Navigation Dashboard Button is displayed",  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Navigation Dashboard button is not displayed", TestUtil.getScreenshot(driver));
 		}
 		
 		try{
 			Assert.assertTrue(dashboard.navigationSendMoneyIsDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Navigation Send Money Button is displayed", null);
+			logGeneration.inputLogs(LogType.pass, "Navigation Send Money Button is displayed",  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Navigation Send Money button is not displayed", TestUtil.getScreenshot(driver));
 		}
 		
 		try{
 			Assert.assertTrue(dashboard.navigationPayBillsIsDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Navigation Paybills Button is displayed", null);
+			logGeneration.inputLogs(LogType.pass, "Navigation Paybills Button is displayed",  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Navigation Paybills button is not displayed", TestUtil.getScreenshot(driver));
 		}
 		
 		try{
 			Assert.assertTrue(dashboard.navigationSendLoadIsDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Navigation Send Load Button is displayed", null);
+			logGeneration.inputLogs(LogType.pass, "Navigation Send Load Button is displayed",  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Navigation Send Load button is not displayed", TestUtil.getScreenshot(driver));
 		}
 		
 		try{
 			Assert.assertTrue(dashboard.navigationMoreIsDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Navigation More Button is displayed", null);
+			logGeneration.inputLogs(LogType.pass, "Navigation More Button is displayed",  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Navigation More button is not displayed", TestUtil.getScreenshot(driver));
 		}

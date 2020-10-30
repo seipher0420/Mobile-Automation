@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_01"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_03"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_04"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_05"/>  
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_09"/>
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_15"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_16"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_63"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_01"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_02"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_03"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_04"/>
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_05"/>
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DashBoard_0101"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0102"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0103"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DashBoard_0104"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0117"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0118"/>
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0119"/>
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0120"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0121"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0124_0125"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0126"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0127"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0129"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0134"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0135"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0136"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0138"/>
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0139"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0142"/>
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0143"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0146"/>
+
+
+
+
+
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -54,13 +54,18 @@ public class Login_TCID_01_63 extends MobileConnection{
 		loginPage.inputPassword(driver, password);
 		Thread.sleep(5000);
 		loginPage.clickLoginBtn(driver);
-		Thread.sleep(10000);
+		Thread.sleep(15000);
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		
 		// Validations 1 - ALL CAPS
 		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, String.format("Login Successful! {%s}", username_allcaps),  null);
+			logGeneration.inputLogs(LogType.pass, String.format("Login Successful! {%s}", username_allcaps),   TestUtil.getScreenshot(driver));
 		} else {
-			logGeneration.inputLogs(LogType.pass, "Login Failed!",  TestUtil.getScreenshot(driver));
+			logGeneration.inputLogs(LogType.fail, "Login Failed!",  TestUtil.getScreenshot(driver));
 		}
 		
 		dashboard.clickLogoutBtnDashboard(driver);
@@ -74,13 +79,18 @@ public class Login_TCID_01_63 extends MobileConnection{
 		loginPage.inputPassword(driver, password);
 		Thread.sleep(5000);
 		loginPage.clickLoginBtn(driver);
-		Thread.sleep(10000);
+		Thread.sleep(15000);
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		
 		// Validations 2 - small letters
 		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, String.format("Login Successful! {%s}", username_smallLetters),  null);
+			logGeneration.inputLogs(LogType.pass, String.format("Login Successful! {%s}", username_smallLetters),   TestUtil.getScreenshot(driver));
 		} else {
-			logGeneration.inputLogs(LogType.pass, "Login Failed!",  TestUtil.getScreenshot(driver));
+			logGeneration.inputLogs(LogType.fail, "Login Failed!",  TestUtil.getScreenshot(driver));
 		}
 		
 		dashboard.clickLogoutBtnDashboard(driver);
@@ -95,13 +105,19 @@ public class Login_TCID_01_63 extends MobileConnection{
 		loginPage.inputPassword(driver, password);
 		Thread.sleep(5000);
 		loginPage.clickLoginBtn(driver);
-		Thread.sleep(10000);
+		Thread.sleep(15000);
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
+		
 		
 		// Validations 2 - small letters
 		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, String.format("Login Successful! {%s}", username_combination),  null);
+			logGeneration.inputLogs(LogType.pass, String.format("Login Successful! {%s}", username_combination),   TestUtil.getScreenshot(driver));
 		} else {
-			logGeneration.inputLogs(LogType.pass, "Login Failed!",  TestUtil.getScreenshot(driver));
+			logGeneration.inputLogs(LogType.fail, "Login Failed!",  TestUtil.getScreenshot(driver));
 		}
 		
 		dashboard.clickLogoutBtnDashboard(driver);

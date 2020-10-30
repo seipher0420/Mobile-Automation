@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="SanityTest">
+    <classes>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_05"/>  
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_16"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_63"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_01"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_03"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0103"/>
+	  <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0119"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0124_0125"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0126"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0129"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0136"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0138"/>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0142"/>
+
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

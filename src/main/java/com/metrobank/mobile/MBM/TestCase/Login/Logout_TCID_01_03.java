@@ -50,6 +50,7 @@ public class Logout_TCID_01_03 extends MobileConnection{
 		// Setup mobile connection
 		AppiumDriver<MobileElement> driver = mobileOS("Android");	
 		Thread.sleep(5000);
+
 		
 		//Script starts here
 		loginPage.inputUsername(driver, username);
@@ -57,13 +58,18 @@ public class Logout_TCID_01_03 extends MobileConnection{
 		loginPage.inputPassword(driver, password);
 		Thread.sleep(5000);
 		loginPage.clickLoginBtn(driver);
-		Thread.sleep(10000);
+		Thread.sleep(15000);
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		
 		// Validations
 		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, "Login Successful!",  null);
+			logGeneration.inputLogs(LogType.pass, "Login Successful!",   TestUtil.getScreenshot(driver));
 		} else {
-			logGeneration.inputLogs(LogType.pass, "Login Failed!",  TestUtil.getScreenshot(driver));
+			logGeneration.inputLogs(LogType.fail, "Login Failed!",  TestUtil.getScreenshot(driver));
 		}
 		
 		int timer = 180;
@@ -71,7 +77,7 @@ public class Logout_TCID_01_03 extends MobileConnection{
 			try {
 				if (driver.findElement(By.xpath(verifyEndSession_xpath)) != null) {
 					logGeneration.inputLogs(LogType.pass, 
-							"\"Your session will end in <##> seconds.\" FOUND",  null);
+							"\"Your session will end in <##> seconds.\" FOUND",   TestUtil.getScreenshot(driver));
 					break;
 				} 
 			} catch (Exception e) {
@@ -86,7 +92,7 @@ public class Logout_TCID_01_03 extends MobileConnection{
 			try {
 				if (driver.findElement(By.xpath(verifyLoggedOutInactivity)) != null) {
 					logGeneration.inputLogs(LogType.pass, 
-							"\"For your security, you have been logged out due to inactivity.\" FOUND",  null);
+							"\"For your security, you have been logged out due to inactivity.\" FOUND",   TestUtil.getScreenshot(driver));
 					break;
 				} 
 			} catch (Exception e) {
@@ -97,11 +103,11 @@ public class Logout_TCID_01_03 extends MobileConnection{
 		
 		Thread.sleep(1000);
 		dashboard.clickOKbtn(driver);
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		
 		// Validate Back to Login Page
 		if (driver.findElement(By.xpath(verifyLoginPage_xpath)) != null) {
-			logGeneration.inputLogs(LogType.pass, "Login Page FOUND",  null);
+			logGeneration.inputLogs(LogType.pass, "Login Page FOUND",   TestUtil.getScreenshot(driver));
 		}
 		
 		logGeneration.extentFlush();

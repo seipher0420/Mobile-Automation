@@ -41,6 +41,11 @@ public class Dashboard_0129 extends MobileConnection{
 		loginPage.clickLoginBtn(driver);
 		logGeneration.inputLogs(LogType.info, "Click Login Button", null);
 		Thread.sleep(15000);
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		
 		logGeneration.inputLogs(LogType.info, "Dashboard is displayed", null);
 		
@@ -52,35 +57,35 @@ public class Dashboard_0129 extends MobileConnection{
 		accountType = dashboard.getDepositAccountTypeDashboard(driver);
 		try{
 			Assert.assertTrue(dashboard.dashboardWidgetDataIsDisplayed(driver, "AccountType"));
-			logGeneration.inputLogs(LogType.pass, "Account Type is Displayed: " + accountType , null);
+			logGeneration.inputLogs(LogType.pass, "Account Type is Displayed: " + accountType ,  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Account Type is not Displayed" , TestUtil.getScreenshot(driver));
 		}
 		
 		try{
 			Assert.assertTrue(dashboard.dashboardWidgetDataIsDisplayed(driver, "AvailableBalance"));
-			logGeneration.inputLogs(LogType.pass, "Available Balance is Displayed: " + accountBalance , null);
+			logGeneration.inputLogs(LogType.pass, "Available Balance is Displayed: " + accountBalance ,  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Available Balance is not Displayed" , TestUtil.getScreenshot(driver));
 		}
 		
 		try{
 			Assert.assertTrue(dashboard.dashboardWidgetDataIsDisplayed(driver, "Currency"));
-			logGeneration.inputLogs(LogType.pass, "Currency is Displayed: "+ accountCurrency , null);
+			logGeneration.inputLogs(LogType.pass, "Currency is Displayed: "+ accountCurrency ,  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Currency is not Displayed" , TestUtil.getScreenshot(driver));
 		}
 		
 		try{
 			Assert.assertTrue(dashboard.dashboardWidgetDataIsDisplayed(driver, "Account Number"));
-			logGeneration.inputLogs(LogType.pass, "Account Number is Displayed: " + accountNumber , null);
+			logGeneration.inputLogs(LogType.pass, "Account Number is Displayed: " + accountNumber ,  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Account Number is not Displayed" , TestUtil.getScreenshot(driver));
 		}
 		
 		try{
 			Assert.assertTrue(dashboard.dashboardWidgetDataIsDisplayed(driver, "AccountTag"));
-			logGeneration.inputLogs(LogType.pass, "Account Tag is Displayed: " + accountTag , null);
+			logGeneration.inputLogs(LogType.pass, "Account Tag is Displayed: " + accountTag ,  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Account Tag is not Displayed" , TestUtil.getScreenshot(driver));
 		}

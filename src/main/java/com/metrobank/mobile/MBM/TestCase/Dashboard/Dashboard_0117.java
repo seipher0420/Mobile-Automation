@@ -39,12 +39,16 @@ public class Dashboard_0117 extends MobileConnection{
 		loginPage.clickLoginBtn(driver);
 		logGeneration.inputLogs(LogType.info, "Click Login Button", null);
 		Thread.sleep(15000);
-		
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		logGeneration.inputLogs(LogType.info, "Dashboard is displayed", null);
 		
 		
 		if(dashboard.dashBoardLogOutMenuIsDisplayed(driver)){
-			logGeneration.inputLogs(LogType.pass, "DashBoard LogOut button is displayed", null);
+			logGeneration.inputLogs(LogType.pass, "DashBoard LogOut button is displayed",  TestUtil.getScreenshot(driver));
 			dashboard.clickDashBoardLogout(driver);
 			TestUtil.waitTime(3);
 			logGeneration.inputLogs(LogType.info, "Click dashboard Logout Button", null);
@@ -53,7 +57,7 @@ public class Dashboard_0117 extends MobileConnection{
 			try{
 				TestUtil.waitTime(2);
 				Assert.assertTrue(dashboard.logOutMessageIsDisplayed(driver));
-				logGeneration.inputLogs(LogType.pass, "LogOut Message is displayed", null);
+				logGeneration.inputLogs(LogType.pass, "LogOut Message is displayed",  TestUtil.getScreenshot(driver));
 			}catch(AssertionError e){
 				logGeneration.inputLogs(LogType.fail, "Log Out Message is not displayed", TestUtil.getScreenshot(driver));
 			}

@@ -39,7 +39,11 @@ public class Dashboard_0133 extends MobileConnection{
 		loginPage.clickLoginBtn(driver);
 		logGeneration.inputLogs(LogType.info, "Click Login Button", null);
 		Thread.sleep(15000);
-		
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		logGeneration.inputLogs(LogType.info, "Dashboard is displayed", null);
 		
 		dashboard.clickCustomizeMenu(driver);
@@ -52,7 +56,7 @@ public class Dashboard_0133 extends MobileConnection{
 		try{
 			TestUtil.waitTime(3);
 			Assert.assertTrue(dashboard.navigationDashBoardIsDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "DashBoard is displayed", null);
+			logGeneration.inputLogs(LogType.pass, "DashBoard is displayed",  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Dashboard was removed", TestUtil.getScreenshot(driver));
 		}
@@ -72,7 +76,7 @@ public class Dashboard_0133 extends MobileConnection{
 		TestUtil.waitTime(3);
 		try{
 			Assert.assertFalse(dashboard.dashboardWidgetDataIsDisplayed(driver, "Deposits"));
-			logGeneration.inputLogs(LogType.pass, "Deposit Widget was removed", null);
+			logGeneration.inputLogs(LogType.pass, "Deposit Widget was removed",  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.pass, "Deposit Widget is displayed", TestUtil.getScreenshot(driver));
 		}

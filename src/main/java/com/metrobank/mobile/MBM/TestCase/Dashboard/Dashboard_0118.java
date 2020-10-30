@@ -39,12 +39,16 @@ public class Dashboard_0118 extends MobileConnection{
 		loginPage.clickLoginBtn(driver);
 		logGeneration.inputLogs(LogType.info, "Click Login Button", null);
 		Thread.sleep(15000);
-		
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		logGeneration.inputLogs(LogType.info, "Dashboard is displayed", null);
 		
 		try{
 			Assert.assertTrue(dashboard.imageLogoIsDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Image Logo is displayed", null);
+			logGeneration.inputLogs(LogType.pass, "Image Logo is displayed",  TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
 			logGeneration.inputLogs(LogType.fail, "Image Logo is not displayed", TestUtil.getScreenshot(driver));
 		}

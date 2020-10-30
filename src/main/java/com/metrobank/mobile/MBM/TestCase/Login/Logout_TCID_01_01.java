@@ -57,10 +57,15 @@ public class Logout_TCID_01_01 extends MobileConnection{
 		Thread.sleep(5000);
 		loginPage.clickLoginBtn(driver);
 		Thread.sleep(10000);
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		
 		// Validations
 		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, "Login Successful!",  null);
+			logGeneration.inputLogs(LogType.pass, "Login Successful!",   TestUtil.getScreenshot(driver));
 		} else {
 			logGeneration.inputLogs(LogType.pass, "Login Failed!",  TestUtil.getScreenshot(driver));
 		}
@@ -70,14 +75,14 @@ public class Logout_TCID_01_01 extends MobileConnection{
 		
 		// Validate Confirm Logout Notification
 		if (driver.findElement(By.xpath(verifyConfirmLogout)) != null) {
-			logGeneration.inputLogs(LogType.pass, "\"Are you sure you want to logout?\" FOUND",  null);
+			logGeneration.inputLogs(LogType.pass, "\"Are you sure you want to logout?\" FOUND",   TestUtil.getScreenshot(driver));
 		}
 		dashboard.confirmLogout(driver);
 		Thread.sleep(500);
 		
 		// Validate Successful Logout Notification
 		if (driver.findElement(By.xpath(verifySuccessfulLogout)) != null) {
-			logGeneration.inputLogs(LogType.pass, "\"You have successfully logged out.\" FOUND",  null);
+			logGeneration.inputLogs(LogType.pass, "\"You have successfully logged out.\" FOUND",   TestUtil.getScreenshot(driver));
 		}
 		
 		logGeneration.extentFlush();

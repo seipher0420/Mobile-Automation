@@ -56,10 +56,15 @@ public class Logout_TCID_01_05 extends MobileConnection{
 		Thread.sleep(5000);
 		loginPage.clickLoginBtn(driver);
 		Thread.sleep(10000);
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		
 		// Validations
 		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, "Login Successful!",  null);
+			logGeneration.inputLogs(LogType.pass, "Login Successful!",   TestUtil.getScreenshot(driver));
 		} else {
 			logGeneration.inputLogs(LogType.pass, "Login Failed!",  TestUtil.getScreenshot(driver));
 		}
@@ -71,7 +76,7 @@ public class Logout_TCID_01_05 extends MobileConnection{
 		
 		// Validate Back to Login Page
 		if (driver.findElement(By.xpath(verifyLoginPage_xpath)) != null) {
-			logGeneration.inputLogs(LogType.pass, "Login Page FOUND",  null);
+			logGeneration.inputLogs(LogType.pass, "Login Page FOUND",   TestUtil.getScreenshot(driver));
 		}
 		
 		logGeneration.extentFlush();

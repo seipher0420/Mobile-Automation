@@ -52,23 +52,30 @@ public class Login_TCID_01_16 extends MobileConnection{
 		loginPage.inputPassword(driver, password);
 		Thread.sleep(5000);
 		loginPage.clickLoginBtn(driver);
-		Thread.sleep(10000);
-		
+		Thread.sleep(15000);
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		// Validations
 		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, "Login Successful!",  null);
+			logGeneration.inputLogs(LogType.pass, "Login Successful!",   TestUtil.getScreenshot(driver));
 			
 			String accountNumber = dashboard.getPrimaryAccountNumber(driver);
 			if (accountNumber.charAt(4) == '3') {
-				logGeneration.inputLogs(LogType.pass, "Savings Account Found : " + accountNumber,  null);
+				logGeneration.inputLogs(LogType.pass, "Savings Account Found : " + accountNumber,   TestUtil.getScreenshot(driver));
 			} else {
 				logGeneration.inputLogs(LogType.fail, "No Savings Account Found : " + accountNumber,  TestUtil.getScreenshot(driver));
 			}
 			
-			TestUtil.swipeDown(driver, 0.1);
+//			TestUtil.swipeDown(driver, 0.1);
+			for (int i=0;  i<3;i++) {
+			    TestUtil.swipeDown(driver, -1);
+			}
 			String accountNumber_checking = dashboard.getCheckingAccountNumber(driver);
 			if (accountNumber_checking.charAt(4) == '7') {
-				logGeneration.inputLogs(LogType.pass, "Checking Account Found : " + accountNumber_checking,  null);
+				logGeneration.inputLogs(LogType.pass, "Checking Account Found : " + accountNumber_checking,   TestUtil.getScreenshot(driver));
 			} else {
 				logGeneration.inputLogs(LogType.fail, "No Checking Account Found : " + accountNumber_checking,  TestUtil.getScreenshot(driver));
 			}

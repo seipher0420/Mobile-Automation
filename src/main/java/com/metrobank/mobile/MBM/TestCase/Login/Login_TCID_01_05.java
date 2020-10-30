@@ -53,10 +53,11 @@ public class Login_TCID_01_05 extends MobileConnection{
 		Thread.sleep(5000);
 		loginPage.clickLoginBtn(driver);
 		Thread.sleep(10000);
+
 		
 		// Validations
 		String err_message = loginPage.getErrorMessage(driver);
-		logGeneration.inputLogs(LogType.pass, "Login Unsuccessful",  null);
+		logGeneration.inputLogs(LogType.pass, "Login Unsuccessful",  TestUtil.getScreenshot(driver));
 		logGeneration.inputLogs(LogType.pass, "Error Message : " + err_message,  TestUtil.getScreenshot(driver));
 		
 		logGeneration.extentFlush();

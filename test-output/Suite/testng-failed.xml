@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Sprint1(failed)">
+    <classes>
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0103">
+        <methods>
+          <include name="DashBoardViewPrepaidAccountOnly0102"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0103 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0136">
+        <methods>
+          <include name="UpdatingShortCutWidget"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0136 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_15">
+        <methods>
+          <include name="connectionMobile"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_15 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0117">
+        <methods>
+          <include name="ValidationLogOutButtonDashboard_0117"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0117 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_05">
+        <methods>
+          <include name="connectionMobile"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_05 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0127">
+        <methods>
+          <include name="RemovingSingleWidget0127"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0127 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0120">
+        <methods>
+          <include name="ValidationLogOutBtnNavigationBar0120"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0120 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0146">
+        <methods>
+          <include name="RemovingInboxWidget"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0146 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_01">
+        <methods>
+          <include name="connectionMobile"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_01 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0139">
+        <methods>
+          <include name="ViewingOfActivityLog"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0139 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_02">
+        <methods>
+          <include name="connectionMobile"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_02 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DashBoard_0104">
+        <methods>
+          <include name="DashBoardMenuValidationHamburgerMenu0104"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DashBoard_0104 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0143">
+        <methods>
+          <include name="ViewingInboxWidget"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0143 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_01">
+        <methods>
+          <include name="connectionMobile"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_01 -->
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_03">
+        <methods>
+          <include name="connectionMobile"/>
+        </methods>
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Login.Logout_TCID_01_03 -->
+    </classes>
+  </test> <!-- Sprint1(failed) -->
+</suite> <!-- Failed suite [Suite] -->

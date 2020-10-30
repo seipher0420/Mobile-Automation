@@ -13,6 +13,11 @@ public class DashBoard {
 
 	PropertyFileHandler propertyFileHandler = new PropertyFileHandler(Locators.DASHBOARD);
 	
+	public void clickOkBtnSession(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("okay_btn"))).click();
+	}
+	
+	
 	public void clickDashBoardMenu(AppiumDriver<MobileElement> driver){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("dashboard_menu_xpath"))).click();
 	}
@@ -155,6 +160,7 @@ public class DashBoard {
 	
 	public String getPrimaryAccountNumber(AppiumDriver<MobileElement> driver) {
 		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("account_number_xpath"))).getText();
+//		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_number_xpath"))).getText();
 		return value; 
 	}
 	
@@ -164,8 +170,20 @@ public class DashBoard {
 	}
 	
 	public boolean VerifySuccessfulLogin(AppiumDriver<MobileElement> driver) {
-		boolean value = driver.findElement(By.xpath(propertyFileHandler.GetValue("verifyDashboardView_xpath"))).isDisplayed();
-		return value;
+//		boolean value = driver.findElement(By.xpath(propertyFileHandler.GetValue("verifyDashboardView_xpath"))).isDisplayed();
+//		return value;
+		
+		try{
+			if(driver.findElement(By.xpath(propertyFileHandler.GetValue("verifyDashboardView_xpath"))).getText() != null){
+				return true;
+			} else {
+				return false;
+			}
+			}catch(Exception e){
+				return false;
+			}
+		
+		
 	}
 	
 	public String getDepositWidgetText(AppiumDriver<MobileElement> driver){
@@ -376,36 +394,60 @@ public class DashBoard {
 	
 	public Boolean myAccountDepositMenuIsDisplayed(
 			AppiumDriver<MobileElement> driver) {
-		
+		try{
 		if (driver.findElement(
 				By.xpath(propertyFileHandler.GetValue("my_account_deposit_xpath")))
 				.getText() != null) {
 			return true;
 		} else {
+			return false;
+		}
+		}catch(Exception e){
 			return false;
 		}
 	}
 	
 	public Boolean myAccountCreditMenuIsDisplayed(
 			AppiumDriver<MobileElement> driver) {
-		
+		try{
 		if (driver.findElement(
-				By.xpath(propertyFileHandler.GetValue("my_account_deposit_xpath")))
+				By.xpath(propertyFileHandler.GetValue("my_account_credit_xpath")))
 				.getText() != null) {
 			return true;
 		} else {
+			return false;
+		}
+		}catch(Exception e){
 			return false;
 		}
 	}
 	
 	public Boolean myAccountPrepaidMenuIsDisplayed(
 			AppiumDriver<MobileElement> driver) {
-		
+		try{
 		if (driver.findElement(
 				By.xpath(propertyFileHandler.GetValue("my_account_prepaid_xpath")))
 				.getText() != null) {
 			return true;
 		} else {
+			return false;
+		}
+		}catch(Exception e){
+			return false;
+		}
+	}
+	
+	public Boolean myAccountCheckAndSavingsIsDisplayed(
+			AppiumDriver<MobileElement> driver) {
+		try{
+		if (driver.findElement(
+				By.xpath(propertyFileHandler.GetValue("myaccount_check_savings_xpath")))
+				.getText() != null) {
+			return true;
+		} else {
+			return false;
+		}
+		}catch(Exception e){
 			return false;
 		}
 	}
@@ -513,7 +555,7 @@ public class DashBoard {
 		try {
 			if (driver.findElement(
 					By.xpath(propertyFileHandler
-							.GetValue("widget_activity_log_xpath"))).getText() != null) {
+							.GetValue("dashboard_activity_logs_xpath"))).getText() != null) {
 				return true;
 			} else {
 				return false;
@@ -745,7 +787,7 @@ public class DashBoard {
 	}
 	
 	public void clickDisplayOptionsMenu(AppiumDriver<MobileElement> driver){
-		driver.findElement(By.xpath(propertyFileHandler.GetValue("display_option_menu_xpath"))).click();
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("display_shortcut_optionMenu_xpath"))).click();
 	}
 	
 	public void clickMyAccounts(AppiumDriver<MobileElement> driver){
@@ -785,5 +827,128 @@ public class DashBoard {
 		return value;
 	
 	}
+	
+	public String getSessionBrowserIsDisplayed(AppiumDriver<MobileElement> driver){
+		String value = null;
+		try{
+			value = driver.findElement(By.xpath(propertyFileHandler.GetValue("session_browser_msg_xpath"))).getText();
+			return value;
+		}catch(Exception e){
+			return value;
+		}
+	}
+	
+	public void clickDashboardDepositMyAccountOverview(AppiumDriver<MobileElement> driver){
+		 	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_dashboard_myaccount_overview_xpath"))).getText();
+	}
+	
+	public Boolean dashboardDepositOverviewIsDisplayed(AppiumDriver<MobileElement> driver, String value){
+		try{
+		switch (value) {
+		case "AvailableBalance":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_available_bal_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+	
+		case "CurrentBalance":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_current_bal_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+	
+		case "Alias":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_alias_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+			
+		case "Currency":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_currency_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+			
+		case "AccountType":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_accountType_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+			
+		case "AccountNumber":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_accountnumber_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+			
+		case "AccountNumberImage":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_image_accountnumber_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+			
+		case "AliasImage":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_image_alias_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+		default:
+			return false;
+		}
+		}catch(Exception e){
+			
+			return false;
+		}
+	}
+	
+	public Boolean dashboardDepositOverviewActionIsDisplayed(AppiumDriver<MobileElement> driver, String value){
+		try{
+		switch (value) {
+		case "PayBills":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_paybills_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+	
+		case "SendMoney":
+			if(	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_sendmoney_xpath"))).getText() != null){
+				return true;
+			}else{
+				return false;
+			}
+	
+		default:
+			return false;
+		}
+		}catch(Exception e){
+			
+			return false;
+		}
+	}
+	
+	public String getMessageNoTransaction(AppiumDriver<MobileElement> driver){
+		String value = null;
+		try{
+			 value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_notransaction_xpath"))).getText();
+			 return value;
+			
+		}catch(Exception e){
+			return value;
+		}
+}
+		
+	
+	
+	
+
 	
 }

@@ -77,10 +77,24 @@ public class LogGeneration extends ReportGeneration{
 			break;
 
 		case warning:
-			test.log(Status.WARNING,
-					MarkupHelper.createLabel(description, ExtentColor.ORANGE));
-			testSummary.log(Status.WARNING,
-					MarkupHelper.createLabel(description, ExtentColor.ORANGE));
+			if(screenshot != null){
+				try{
+					test.log(Status.WARNING, description, MediaEntityBuilder
+							.createScreenCaptureFromBase64String(screenshot)
+							.build());
+					testSummary.log(Status.WARNING, description, MediaEntityBuilder
+							.createScreenCaptureFromBase64String(screenshot)
+							.build());
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+	
+			}else{
+				test.log(Status.WARNING,
+						MarkupHelper.createLabel(description, ExtentColor.ORANGE));
+				testSummary.log(Status.WARNING,
+						MarkupHelper.createLabel(description, ExtentColor.ORANGE));
+			}
 			System.out.println(description);
 			break;
 
