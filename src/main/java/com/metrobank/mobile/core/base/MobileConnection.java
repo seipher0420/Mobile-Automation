@@ -36,7 +36,6 @@ public abstract class MobileConnection {
 	    String appiumURL = properties.getProperty("appuimURL");
 
 		if(mobileOS.equals(os)){
-			
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability("deviceName", deviceName);
 			capabilities.setCapability("udid", deviceId); 
