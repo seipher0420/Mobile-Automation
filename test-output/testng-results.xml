@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="84606" started-at="2020-10-28T09:16:37Z" finished-at="2020-10-28T09:18:01Z">
+  <suite name="Default suite" duration-ms="98493" started-at="2020-10-30T08:08:21Z" finished-at="2020-10-30T08:09:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="84606" started-at="2020-10-28T09:16:37Z" finished-at="2020-10-28T09:18:01Z">
-      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0135">
-        <test-method status="PASS" signature="UpdatingShortCutWidget()[pri:0, instance:main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0135@1fa3a9d]" name="UpdatingShortCutWidget" duration-ms="84583" started-at="2020-10-28T17:16:37Z" finished-at="2020-10-28T17:18:01Z">
+    <test name="Default test" duration-ms="98493" started-at="2020-10-30T08:08:21Z" finished-at="2020-10-30T08:09:59Z">
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DepositAccOverview.DepositAccountOverview_0112">
+        <test-method status="PASS" signature="DepositAccountOverview0112()[pri:0, instance:main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DepositAccOverview.DepositAccountOverview_0112@1fa3a9d]" name="DepositAccountOverview0112" duration-ms="98470" started-at="2020-10-30T16:08:21Z" finished-at="2020-10-30T16:09:59Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UpdatingShortCutWidget -->
-      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0135 -->
+        </test-method> <!-- DepositAccountOverview0112 -->
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DepositAccOverview.DepositAccountOverview_0112 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

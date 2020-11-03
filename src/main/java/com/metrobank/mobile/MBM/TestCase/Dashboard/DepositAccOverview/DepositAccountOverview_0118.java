@@ -1,4 +1,4 @@
-package main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.MBM185;
+package main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DepositAccOverview;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -6,7 +6,6 @@ import io.appium.java_client.MobileElement;
 import java.io.IOException;
 
 import main.java.com.metrobank.mobile.MBM.DashBoard.DashBoard;
-import main.java.com.metrobank.mobile.MBM.Enrollment.EnrollmentPage;
 import main.java.com.metrobank.mobile.MBM.LoginPage.LoginPage;
 import main.java.com.metrobank.mobile.core.base.MobileConnection;
 import main.java.com.metrobank.mobile.core.base.Enums.LogType;
@@ -18,21 +17,20 @@ import main.java.com.metrobank.mobile.core.utilities.TestUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class MBM185_0106 extends MobileConnection{
+public class DepositAccountOverview_0118 extends MobileConnection{
 
 	PropertyFileHandler property = new PropertyFileHandler(Locators.TESTDATA);
 
 	@Test
-	public void DashBoardViewDepositAccountOnly0102() throws IOException, InterruptedException{
+	public void DepositAccountOverview0114() throws IOException, InterruptedException{
 		
 
 		
 		LogGeneration logGeneration = new LogGeneration();
 		LoginPage loginPage = new LoginPage();
 		DashBoard dashboard = new DashBoard();
-		EnrollmentPage enrollmentPage = new EnrollmentPage();
 		
-		logGeneration.generateReport("MBM 183 Validation of Next button in 'Verification' screen when user does not yet entered an OTP code 0102");
+		logGeneration.generateReport(" Transction History using Date Filter_Without Transaction 0118");
 		AppiumDriver<MobileElement> driver = mobileOS("Android");	
 		TestUtil.waitTime(5);
 		loginPage.inputUsername(driver, property.GetValue("username"));
@@ -44,16 +42,18 @@ public class MBM185_0106 extends MobileConnection{
 		loginPage.clickLoginBtn(driver);
 		logGeneration.inputLogs(LogType.info, "Click Login Button", null);
 		Thread.sleep(15000);
-		dashboard.clickOkBtnSession(driver);
-		TestUtil.waitTime(5);
-		
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		dashboard.clickHamburgerMenu(driver);
 		logGeneration.inputLogs(LogType.info, "Click Hamburger Menu", null);
 		
 		TestUtil.waitTime(3);
 		dashboard.clickMyAccounts(driver);
 		
-		TestUtil.waitTime(5);
+		TestUtil.waitTime(3);
 		try{
 			Assert.assertTrue(dashboard.myAccountDepositMenuIsDisplayed(driver));
 			logGeneration.inputLogs(LogType.pass, "My Accounts Deposit Menu Tab is Displayed", null);
@@ -117,52 +117,79 @@ public class MBM185_0106 extends MobileConnection{
 			logGeneration.inputLogs(LogType.fail, "My Account Tag on Deposit Tab is not Displayed", TestUtil.getScreenshot(driver));
 		}
 		
-		enrollmentPage.clickEnrollBtn(driver);
-		logGeneration.inputLogs(LogType.pass, "Click Enroll Button on My Accounts Page", null);
-		TestUtil.waitTime(3);
+		dashboard.clickDashboardDepositMyAccountOverview(driver);
+		logGeneration.inputLogs(LogType.info, "Click Deposit Account for Overview", null);
+		
 		try{
-			Assert.assertTrue(enrollmentPage.isAccountNumberDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Input Account Number is displayed and blank", null);
+			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "AvailableBalance"));
+			logGeneration.inputLogs(LogType.pass, "Deposit Account Overview Available Balance is displayed", TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
-			logGeneration.inputLogs(LogType.fail, "Input Account Number is not displayed", TestUtil.getScreenshot(driver));
+			logGeneration.inputLogs(LogType.fail, "Deposit Account Overview Available Balance is not displayed", TestUtil.getScreenshot(driver));
+		}
+		
+		
+		try{
+			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "CurrentBalance"));
+			logGeneration.inputLogs(LogType.pass, "Deposit Account Overview CurrentBalance is displayed", TestUtil.getScreenshot(driver));
+		}catch(AssertionError e){
+			logGeneration.inputLogs(LogType.fail, "Deposit Account Overview CurrentBalance is not displayed", TestUtil.getScreenshot(driver));
 		}
 		
 		try{
-			Assert.assertTrue(enrollmentPage.isAccountAliasDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Input Account Alias is displayed and blank", null);
+			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "Alias"));
+			logGeneration.inputLogs(LogType.pass, "Deposit Account Overview Alias is displayed", TestUtil.getScreenshot(driver));
 		}catch(AssertionError e){
-			logGeneration.inputLogs(LogType.fail, "Input Account Alias is not displayed", TestUtil.getScreenshot(driver));
+			logGeneration.inputLogs(LogType.fail, "Deposit Account Overview Alias is not displayed", TestUtil.getScreenshot(driver));
 		}
-
 		
-		enrollmentPage.clickEnrollBtn(driver);
-		TestUtil.waitTime(3);
+		try{
+			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "Currency"));
+			logGeneration.inputLogs(LogType.pass, "Deposit Account Overview Currency is displayed", TestUtil.getScreenshot(driver));
+		}catch(AssertionError e){
+			logGeneration.inputLogs(LogType.fail, "Deposit Account Overview Currency is not displayed", TestUtil.getScreenshot(driver));
+		}
 		
-		String accountNumber = property.GetValue("AccountNumber_185102");
-		String alias = property.GetValue("AccountAlias_185102");
-		enrollmentPage.inputAccountNumberEnrollment(driver, accountNumber);
-		enrollmentPage.ClickEnrollAccountBtn(driver);
-		logGeneration.inputLogs(LogType.info, "Input Account Number: " + accountNumber, null);
+		
+		
+		try{
+			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "AccountType"));
+			logGeneration.inputLogs(LogType.pass, "Deposit Account Overview AccountType is displayed", TestUtil.getScreenshot(driver));
+		}catch(AssertionError e){
+			logGeneration.inputLogs(LogType.fail, "Deposit Account Overview AccountType is not displayed", TestUtil.getScreenshot(driver));
+		}
+		
+		try{
+			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "AccountNumber"));
+			logGeneration.inputLogs(LogType.pass, "Deposit Account Overview AccountNumber is displayed", TestUtil.getScreenshot(driver));
+		}catch(AssertionError e){
+			logGeneration.inputLogs(LogType.fail, "Deposit Account Overview AccountNumber is not displayed", TestUtil.getScreenshot(driver));
+		}
+		
+		
+		try{
+			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "AccountNumberImage"));
+			logGeneration.inputLogs(LogType.pass, "Deposit Account Overview AccountNumberImage is displayed", TestUtil.getScreenshot(driver));
+		}catch(AssertionError e){
+			logGeneration.inputLogs(LogType.fail, "Deposit Account Overview AccountNumberImage is not displayed", TestUtil.getScreenshot(driver));
+		}
+		
+		
+		try{
+			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "AliasImage"));
+			logGeneration.inputLogs(LogType.pass, "Deposit Account Overview AliasImage is displayed", TestUtil.getScreenshot(driver));
+		}catch(AssertionError e){
+			logGeneration.inputLogs(LogType.fail, "Deposit Account Overview AliasImage is not displayed", TestUtil.getScreenshot(driver));
+		}
+		
 		TestUtil.waitTime(2);
-		enrollmentPage.inputAccountAlias(driver, alias);
-		logGeneration.inputLogs(LogType.info, "Input Alias: " + alias, null);
-		TestUtil.waitTime(5);
-		enrollmentPage.ClickEnrollAccountBtn(driver);
-		TestUtil.waitTime(5);
-		
-		try{
-			Assert.assertTrue(enrollmentPage.enrollmentVerifyOtpPageSendCodeBtnIsDisplayed(driver));
-			logGeneration.inputLogs(LogType.pass, "Verify OTP Page send another code button is Displayed and Enabled", null);
-		}catch(AssertionError e){
-			logGeneration.inputLogs(LogType.fail, "Verify OTP Page send another code button is not Displayed", TestUtil.getScreenshot(driver));
-			
+		for (int i=0;  i<7;i++) {
+		    TestUtil.swipeDown(driver, 0.1);
 		}
-		TestUtil.waitTime(3);
+		
 
-		
-		
-		TestUtil.waitTime(3);
 		logGeneration.extentFlush();
 		driver.quit();
+		
 	}
 }
+

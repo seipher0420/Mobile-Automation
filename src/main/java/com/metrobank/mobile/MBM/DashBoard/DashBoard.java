@@ -839,7 +839,7 @@ public class DashBoard {
 	}
 	
 	public void clickDashboardDepositMyAccountOverview(AppiumDriver<MobileElement> driver){
-		 	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_dashboard_myaccount_overview_xpath"))).getText();
+		 	driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_dashboard_myaccount_overview_xpath"))).click();
 	}
 	
 	public Boolean dashboardDepositOverviewIsDisplayed(AppiumDriver<MobileElement> driver, String value){
@@ -944,7 +944,25 @@ public class DashBoard {
 		}catch(Exception e){
 			return value;
 		}
-}
+	}
+	public String getDepositOverviewSearchMessage(AppiumDriver<MobileElement> driver){
+		String value = null;
+		try{
+			 value = driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_search_message_xpath"))).getText();
+			 return value;
+			
+		}catch(Exception e){
+			return value;
+		}
+	}
+	
+	public void inputDepositOverviewSearch(AppiumDriver<MobileElement> driver, String value){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_search_xpath"))).sendKeys(value);
+	}
+	
+	public void clickFilterDepositOverview(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("deposit_account_overview_filter_xpath"))).click();
+	}
 		
 	
 	

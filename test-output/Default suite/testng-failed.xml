@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0135">
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DepositAccOverview.DepositAccountOverview_0112">
         <methods>
-          <include name="UpdatingShortCutWidget"/>
+          <include name="DepositAccountOverview0112"/>
         </methods>
-      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.Dashboard_0135 -->
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DepositAccOverview.DepositAccountOverview_0112 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

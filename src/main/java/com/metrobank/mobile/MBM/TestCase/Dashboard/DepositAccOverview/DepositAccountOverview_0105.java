@@ -42,7 +42,11 @@ public class DepositAccountOverview_0105 extends MobileConnection{
 		loginPage.clickLoginBtn(driver);
 		logGeneration.inputLogs(LogType.info, "Click Login Button", null);
 		Thread.sleep(15000);
-		
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		dashboard.clickHamburgerMenu(driver);
 		logGeneration.inputLogs(LogType.info, "Click Hamburger Menu", null);
 		
@@ -115,6 +119,7 @@ public class DepositAccountOverview_0105 extends MobileConnection{
 		
 		dashboard.clickDashboardDepositMyAccountOverview(driver);
 		logGeneration.inputLogs(LogType.info, "Click Deposit Account for Overview", null);
+		TestUtil.waitTime(5);
 		
 		try{
 			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "AvailableBalance"));

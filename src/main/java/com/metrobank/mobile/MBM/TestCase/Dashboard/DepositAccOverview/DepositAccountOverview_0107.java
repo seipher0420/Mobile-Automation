@@ -30,7 +30,7 @@ public class DepositAccountOverview_0107 extends MobileConnection{
 		LoginPage loginPage = new LoginPage();
 		DashBoard dashboard = new DashBoard();
 		
-		logGeneration.generateReport("Dashboard Viewing of Enrolled Active Deposit Account List via Menu Navigation button 0103");
+		logGeneration.generateReport("Active Deposit Account Actions 0107");
 		AppiumDriver<MobileElement> driver = mobileOS("Android");	
 		TestUtil.waitTime(5);
 		loginPage.inputUsername(driver, property.GetValue("username"));
@@ -42,7 +42,11 @@ public class DepositAccountOverview_0107 extends MobileConnection{
 		loginPage.clickLoginBtn(driver);
 		logGeneration.inputLogs(LogType.info, "Click Login Button", null);
 		Thread.sleep(15000);
-		
+		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
+			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
+			dashboard.clickOkBtnSession(driver);
+			TestUtil.waitTime(5);
+		}
 		dashboard.clickHamburgerMenu(driver);
 		logGeneration.inputLogs(LogType.info, "Click Hamburger Menu", null);
 		
@@ -115,6 +119,7 @@ public class DepositAccountOverview_0107 extends MobileConnection{
 		
 		dashboard.clickDashboardDepositMyAccountOverview(driver);
 		logGeneration.inputLogs(LogType.info, "Click Deposit Account for Overview", null);
+		TestUtil.waitTime(5);
 		
 		try{
 			Assert.assertTrue(dashboard.dashboardDepositOverviewIsDisplayed(driver, "AvailableBalance"));
@@ -178,7 +183,7 @@ public class DepositAccountOverview_0107 extends MobileConnection{
 		}
 		
 		TestUtil.waitTime(2);
-		for (int i=0;  i<4;i++) {
+		for (int i=0;  i<5;i++) {
 		    TestUtil.swipeDown(driver, 0.1);
 		}
 		
