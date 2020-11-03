@@ -22,6 +22,7 @@ public abstract class MobileConnection {
 		FileReader reader=new FileReader(System.getProperty(AutomationConstants.USER_DIRECTORY) + AutomationConstants.PROPERTY_FILE);  
 	    Properties properties=new Properties();  
 	    properties.load(reader);  
+		
 	    String os = properties.getProperty("mobileOS");
 	    String deviceName = properties.getProperty("deviceName");
 	    String deviceId = properties.getProperty("deviceId");

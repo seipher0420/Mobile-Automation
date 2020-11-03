@@ -102,9 +102,22 @@ public class LoginPage {
 		return value; 
 	}
 	
+	public Boolean isErrorSessionOnAnotherBrowserDisplayed(AppiumDriver<MobileElement> driver){
+		try{
+			if(driver.findElement(By.xpath(propertyFileHandler.GetValue("errMsg_other_session_ended_xpath"))).getText() != null){
+				return true;
+			} else {
+				return false;
+			}
+		}catch(Exception e){
+			return false;
+		}
+	}
 	
-	
-	
+	public void clickOkaybutton(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("errMsg_okay_btn_xpath"))).click();
+
+	}
 	
 	
 	

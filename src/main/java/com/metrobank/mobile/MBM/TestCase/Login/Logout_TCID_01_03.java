@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import main.java.com.metrobank.mobile.MBM.DashBoard.DashBoard;
 import main.java.com.metrobank.mobile.MBM.LoginPage.LoginPage;
+import main.java.com.metrobank.mobile.MBM.TestCase.Common.CommonMethods;
 import main.java.com.metrobank.mobile.core.base.MobileConnection;
 import main.java.com.metrobank.mobile.core.base.Enums.LogType;
 import main.java.com.metrobank.mobile.core.logger.LogGeneration;
@@ -53,24 +54,7 @@ public class Logout_TCID_01_03 extends MobileConnection{
 
 		
 		//Script starts here
-		loginPage.inputUsername(driver, username);
-		Thread.sleep(5000);
-		loginPage.inputPassword(driver, password);
-		Thread.sleep(5000);
-		loginPage.clickLoginBtn(driver);
-		Thread.sleep(15000);
-		if(dashboard.getSessionBrowserIsDisplayed(driver) != null){
-			logGeneration.inputLogs(LogType.warning, "Message A session on another browser or device has ended is displayed", TestUtil.getScreenshot(driver));
-			dashboard.clickOkBtnSession(driver);
-			TestUtil.waitTime(5);
-		}
-		
-		// Validations
-		if (dashboard.VerifySuccessfulLogin(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, "Login Successful!",   TestUtil.getScreenshot(driver));
-		} else {
-			logGeneration.inputLogs(LogType.fail, "Login Failed!",  TestUtil.getScreenshot(driver));
-		}
+		CommonMethods.Login(driver, username, password);
 		
 		int timer = 180;
 		while (timer > 0) {
