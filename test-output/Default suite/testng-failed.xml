@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DepositAccOverview.DepositAccountOverview_0112">
+      <class name="main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_01">
         <methods>
-          <include name="DepositAccountOverview0112"/>
+          <include name="connectionMobile"/>
         </methods>
-      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.DepositAccOverview.DepositAccountOverview_0112 -->
+      </class> <!-- main.java.com.metrobank.mobile.MBM.TestCase.Login.Login_TCID_01_01 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

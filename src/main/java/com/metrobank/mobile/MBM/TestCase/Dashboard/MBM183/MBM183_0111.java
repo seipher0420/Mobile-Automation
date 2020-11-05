@@ -2,8 +2,6 @@ package main.java.com.metrobank.mobile.MBM.TestCase.Dashboard.MBM183;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidKeyCode;
-
 import java.io.IOException;
 
 import main.java.com.metrobank.mobile.MBM.DashBoard.DashBoard;
