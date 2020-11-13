@@ -119,6 +119,18 @@ public class LoginPage {
 
 	}
 	
+	public Boolean isRecoverAccessDisplayed(AppiumDriver<MobileElement> driver){
+		try{
+			if(driver.findElement(By.xpath(propertyFileHandler.GetValue("recover_access_xpath"))).getText() != null){
+				return true;
+			} else {
+				return false;
+			}
+		}catch(Exception e){
+			return false;
+		}
+	}
+	
 	
 	
 }

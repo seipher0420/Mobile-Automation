@@ -235,7 +235,6 @@ public class TestUtil {
 			int top_y = (int)(height*0.80);
 			int bottom_y = (int)(height*yAxis);
 			System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
-//			TouchAction ts = new TouchAction(driver);
 			TouchAction ts = new TouchAction(driver);
 			ts.press(PointOption.point(x, top_y))
 				.waitAction(new WaitOptions().withDuration(Duration.ofMillis(600)))
