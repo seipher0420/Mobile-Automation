@@ -79,36 +79,39 @@ public class Enroll_Deposit_190_0101 extends MobileConnection {
 			
 		// Validation of Verification Screen
 		if (myAccountsPage.isVerificationTitleDisplayed(driver) == true) {
-				logGeneration.inputLogs(LogType.pass, "Verification Screen FOUND",  null);
+				logGeneration.inputLogs(LogType.pass, "Verification Screen FOUND",  TestUtil.getScreenshot(driver));
 				TestUtil.waitTime(2);
 			/*
 			 * Repeat steps 2-4 times
 			 */
+			for (int index = 0; index < 4; index++) {
 				myAccountsPage.inputOTP(driver, OTP);
 				logGeneration.inputLogs(LogType.info, String.format("Input OTP : {%s}", OTP),  null);
 			myAccountsPage.clickNextBtn(driver);
 				logGeneration.inputLogs(LogType.info, "Click on NEXT button",  null);
 				TestUtil.waitTime(10);
-			if (myAccountsPage.isErrorInvalidPasscodeExceededDisplayed(driver) == true) {
-				String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
-				logGeneration.inputLogs(LogType.pass, 
-						String.format("Error Message found : {%s}", errMsg),  null);
-				if (myAccountsPage.clickNextBtn(driver) == true) {
-					logGeneration.inputLogs(LogType.info, "Click on NEXT button",  null);
+				if (myAccountsPage.isErrorInvalidPasscodeExceededDisplayed(driver) == true) {
+					String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
+					logGeneration.inputLogs(LogType.pass, 
+							String.format("Error Message found : {%s}", errMsg),  TestUtil.getScreenshot(driver));
+					if (myAccountsPage.clickNextBtn(driver) == true) {
+						logGeneration.inputLogs(LogType.info, "Click on NEXT button",  null);
+					} else {
+						logGeneration.inputLogs(LogType.fail, "NEXT button is not ENABLED",  TestUtil.getScreenshot(driver));
+					}
+					
 				} else {
-					logGeneration.inputLogs(LogType.fail, "NEXT button is not ENABLED",  TestUtil.getScreenshot(driver));
-				}
-				/*
-				 * Repeat steps 2-4 times
-				 */
-			} else {
-				logGeneration.inputLogs(LogType.fail, "Error Message NOT FOUND", TestUtil.getScreenshot(driver));
-				if (myAccountsPage.clickNextBtn(driver) == true) {
-					logGeneration.inputLogs(LogType.info, "Click on NEXT button",  null);
-				} else {
-					logGeneration.inputLogs(LogType.fail, "NEXT button is not ENABLED",  TestUtil.getScreenshot(driver));
+					logGeneration.inputLogs(LogType.fail, "Error Message NOT FOUND", TestUtil.getScreenshot(driver));
+					if (myAccountsPage.clickNextBtn(driver) == true) {
+						logGeneration.inputLogs(LogType.info, "Click on NEXT button",  null);
+					} else {
+						logGeneration.inputLogs(LogType.fail, "NEXT button is not ENABLED",  TestUtil.getScreenshot(driver));
+					}
 				}
 			}
+			/*
+			 * Repeat steps 2-4 times
+			 */
 		} else {
 			logGeneration.inputLogs(LogType.fail, 
 					"Verification Screen NOT FOUND",  

@@ -90,7 +90,8 @@ public class Logout_TCID_01_03 extends MobileConnection{
 		Thread.sleep(1000);
 		
 		// Validate Back to Login Page
-		if (driver.findElement(By.xpath(verifyLoginPage_xpath)) != null) {
+		if (loginPage.isLoginPageDisplayed(driver) == true) {
+//		if (driver.findElement(By.xpath(verifyLoginPage_xpath)) != null) {
 			logGeneration.inputLogs(LogType.pass, "Login Page FOUND",   TestUtil.getScreenshot(driver));
 		}
 		

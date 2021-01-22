@@ -79,7 +79,7 @@ public class Enroll_Deposit_189_0110 extends MobileConnection {
 		if (myAccountsPage.isErrorDisplayed(driver) == true) {
 			String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
 			logGeneration.inputLogs(LogType.pass, 
-					String.format("Error Message found : {%s}", errMsg),  null);
+					String.format("Error Message found : {%s}", errMsg),  TestUtil.getScreenshot(driver));
 		} else {
 			logGeneration.inputLogs(LogType.fail, 
 					"Error Screen NOT FOUND.",  
@@ -101,7 +101,7 @@ public class Enroll_Deposit_189_0110 extends MobileConnection {
 		if (myAccountsPage.isCheckDetailsBtnEnabled(driver) == true) {
 			String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
 			logGeneration.inputLogs(LogType.pass, 
-					String.format("Error Message found : {%s}", errMsg),  null);
+					String.format("Error Message found : {%s}", errMsg),  TestUtil.getScreenshot(driver));
 		} else {
 			logGeneration.inputLogs(LogType.fail, 
 					"Error Screen NOT FOUND",  
@@ -112,7 +112,7 @@ public class Enroll_Deposit_189_0110 extends MobileConnection {
 		TestUtil.waitTime(1);
 		if (myAccountsPage.isEnrollAccountTitleDisplayed(driver) == true) {
 			logGeneration.inputLogs(LogType.pass, 
-					"Enroll Account Screen FOUND",  null);
+					"Enroll Account Screen FOUND",  TestUtil.getScreenshot(driver));
 		} else {
 			logGeneration.inputLogs(LogType.fail, 
 					"Enroll Account Screen NOT FOUND",  

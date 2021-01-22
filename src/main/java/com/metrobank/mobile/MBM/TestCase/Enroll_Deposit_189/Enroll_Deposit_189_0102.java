@@ -77,10 +77,10 @@ public class Enroll_Deposit_189_0102 extends MobileConnection {
 			logGeneration.inputLogs(LogType.info, "Click on ENROLL button",  null);
 			TestUtil.waitTime(1);
 		
-		if (myAccountsPage.isErrorEnter13DigitDisplayed(driver) == true) {
+		if (myAccountsPage.isErrorAccountNumberInvalidDisplayed(driver) == true) {
 			String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
 			logGeneration.inputLogs(LogType.pass, 
-					String.format("Error Message found : {%s}", errMsg),  null);
+					String.format("Error Message found : {%s}", errMsg),  TestUtil.getScreenshot(driver));
 		} else {
 			logGeneration.inputLogs(LogType.fail, 
 					"Error Message NOT FOUND.",  

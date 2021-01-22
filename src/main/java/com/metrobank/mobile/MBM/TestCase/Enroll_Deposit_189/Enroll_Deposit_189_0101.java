@@ -62,7 +62,7 @@ public class Enroll_Deposit_189_0101 extends MobileConnection {
 		
 		if (myAccountsPage.isErrorDisplayed(driver) == true) {
 			String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
-			logGeneration.inputLogs(LogType.pass, errMsg,  null);
+			logGeneration.inputLogs(LogType.pass, errMsg,  TestUtil.getScreenshot(driver));
 		} else {
 			logGeneration.inputLogs(LogType.fail, 
 					"Error Message NOT FOUND. Enroll button is NOT ENABLED",  

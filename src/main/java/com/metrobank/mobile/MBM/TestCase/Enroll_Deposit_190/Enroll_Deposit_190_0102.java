@@ -79,7 +79,7 @@ public class Enroll_Deposit_190_0102 extends MobileConnection {
 			
 		// Validation of Verification Screen
 		if (myAccountsPage.isVerificationTitleDisplayed(driver) == true) {
-				logGeneration.inputLogs(LogType.pass, "Verification Screen FOUND",  null);
+				logGeneration.inputLogs(LogType.pass, "Verification Screen FOUND",  TestUtil.getScreenshot(driver));
 				TestUtil.waitTime(2);
 			/*
 			 * Re-try otp entry for 5 times until maximum attempts allowed reached
@@ -92,7 +92,7 @@ public class Enroll_Deposit_190_0102 extends MobileConnection {
 			if (myAccountsPage.isErrorInvalidPasscodeExceededDisplayed(driver) == true) {
 				String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
 				logGeneration.inputLogs(LogType.pass, 
-						String.format("Error Message found : {%s}", errMsg),  null);
+						String.format("Error Message found : {%s}", errMsg),  TestUtil.getScreenshot(driver));
 				if (myAccountsPage.clickNextBtn(driver) == true) {
 					logGeneration.inputLogs(LogType.info, "Click on NEXT button",  null);
 				} else {
@@ -112,7 +112,7 @@ public class Enroll_Deposit_190_0102 extends MobileConnection {
 			if (myAccountsPage.isErrorMaximumAttemptsDisplayed(driver) == true) {
 				String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
 				logGeneration.inputLogs(LogType.pass, 
-						String.format("Error Message found : {%s}", errMsg),  null);
+						String.format("Error Message found : {%s}", errMsg),  TestUtil.getScreenshot(driver));
 			} else {
 				logGeneration.inputLogs(LogType.fail, "Error Message NOT FOUND", TestUtil.getScreenshot(driver));
 			}

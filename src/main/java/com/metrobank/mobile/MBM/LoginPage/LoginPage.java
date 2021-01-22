@@ -46,6 +46,16 @@ public class LoginPage {
 
 	}
 	
+	public void clickContinueToLoginScreen(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("continue_to_login_xpath"))).click();
+
+	}
+	
+	public void clickTryAgainBtn(AppiumDriver<MobileElement> driver){
+		driver.findElement(By.xpath(propertyFileHandler.GetValue("try_again_xpath"))).click();
+
+	}
+	
 	public void enterAccountNumber(AppiumDriver<MobileElement> driver, String value){
 		driver.findElement(By.xpath(propertyFileHandler.GetValue("account_number_xpath"))).sendKeys(value);
 
@@ -100,6 +110,23 @@ public class LoginPage {
 	public String getErrorMessage(AppiumDriver<MobileElement> driver) {
 		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("error_message_xpath"))).getText();
 		return value; 
+	}
+	
+	public String getErrorMessagePopUp(AppiumDriver<MobileElement> driver) {
+		String value = driver.findElement(By.xpath(propertyFileHandler.GetValue("error_message_popup_xpath"))).getText();
+		return value; 
+	}
+	
+	public Boolean isLoginPageDisplayed(AppiumDriver<MobileElement> driver){
+		try{
+			if(driver.findElement(By.xpath(propertyFileHandler.GetValue("login_title_xpath"))).getText() != null){
+				return true;
+			} else {
+				return false;
+			}
+		}catch(Exception e){
+			return false;
+		}
 	}
 	
 	public Boolean isErrorSessionOnAnotherBrowserDisplayed(AppiumDriver<MobileElement> driver){

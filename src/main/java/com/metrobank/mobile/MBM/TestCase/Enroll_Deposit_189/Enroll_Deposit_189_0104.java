@@ -79,7 +79,7 @@ public class Enroll_Deposit_189_0104 extends MobileConnection {
 		if (myAccountsPage.isErrorAccountAlreadyEnrolledDisplayed(driver) == true) {
 			String errMsg = myAccountsPage.getAccountNumberErrorMessage(driver);
 			logGeneration.inputLogs(LogType.pass, 
-					String.format("Error Message found : {%s}", errMsg),  null);
+					String.format("Error Message found : {%s}", errMsg),  TestUtil.getScreenshot(driver));
 		} else {
 			logGeneration.inputLogs(LogType.fail, 
 					"Error Message NOT FOUND.",  

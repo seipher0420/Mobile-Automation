@@ -78,7 +78,7 @@ public class Enroll_Deposit_189_0111 extends MobileConnection {
 			
 		// Validation of Verification Screen
 		if (myAccountsPage.isVerificationTitleDisplayed(driver) == true) {
-			logGeneration.inputLogs(LogType.pass, "Verification Screen FOUND",  null);
+			logGeneration.inputLogs(LogType.pass, "Verification Screen FOUND",  TestUtil.getScreenshot(driver));
 			TestUtil.waitTime(2);
 		} else {
 			logGeneration.inputLogs(LogType.fail, 

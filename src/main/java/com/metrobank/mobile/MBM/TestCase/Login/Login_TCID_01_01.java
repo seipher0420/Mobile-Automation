@@ -2,12 +2,14 @@ package main.java.com.metrobank.mobile.MBM.TestCase.Login;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import main.java.com.metrobank.mobile.MBM.DashBoard.DashBoard;
 import main.java.com.metrobank.mobile.MBM.LoginPage.LoginPage;
 import main.java.com.metrobank.mobile.MBM.TestCase.Common.CommonMethods;
 import main.java.com.metrobank.mobile.core.base.MobileConnection;
+import main.java.com.metrobank.mobile.core.base.BrowserStackConnection;
 import main.java.com.metrobank.mobile.core.base.Enums.LogType;
 import main.java.com.metrobank.mobile.core.logger.LogGeneration;
 import main.java.com.metrobank.mobile.core.utilities.PropertyFileHandler;
@@ -23,7 +25,8 @@ import io.appium.java_client.MobileElement;
  *
  */
 
-public class Login_TCID_01_01 extends MobileConnection{
+//public class Login_TCID_01_01 extends BrowserStackConnection {
+	public class Login_TCID_01_01 extends MobileConnection{
 	
 	private PropertyFileHandler property;
 	private String username, password;
@@ -45,10 +48,20 @@ public class Login_TCID_01_01 extends MobileConnection{
 		
 		// Setup mobile connection
 		AppiumDriver<MobileElement> driver = mobileOS("Android");	
+//		AppiumDriver<MobileElement> driver = BrowserStackDevice();	
 		Thread.sleep(5000);
 		
 		//Script starts here
-
+		
+		/** 
+		 * For BrowserStack Devices
+		 */
+//		loginPage.clickContinueToLoginScreen(driver);
+//			TestUtil.waitTime(3);
+//			logGeneration.inputLogs(LogType.pass, "Click on CONTINUE TO LOGIN SCREEN",   TestUtil.getScreenshot(driver));
+			
+			
+			
 		if (CommonMethods.Login(driver, username, password) == true) {
 
 			String accountNumber = dashboard.getPrimaryAccountNumber(driver);

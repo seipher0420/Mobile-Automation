@@ -947,6 +947,18 @@ public class DashBoard {
 			return false;
 		}
 	}
+	
+	public Boolean isForcedLogoutErrorDisplayed(AppiumDriver<MobileElement> driver){
+		try{
+			if(driver.findElement(By.xpath(propertyFileHandler.GetValue("errMsg_forced_logout_xpath"))).getText() != null){
+				return true;
+			} else {
+				return false;
+			}
+		}catch(Exception e){
+			return false;
+		}
+	}
 
 	public String getMessageNoTransaction(AppiumDriver<MobileElement> driver){
 		String value = null;

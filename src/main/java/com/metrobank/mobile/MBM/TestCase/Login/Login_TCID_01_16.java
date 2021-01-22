@@ -56,10 +56,10 @@ public class Login_TCID_01_16 extends MobileConnection{
 				logGeneration.inputLogs(LogType.fail, "No Savings Account Found : " + accountNumber,  TestUtil.getScreenshot(driver));
 			}
 			
-//			TestUtil.swipeDown(driver, 0.1);
-			for (int i=0;  i<3;i++) {
-			    TestUtil.swipeDown(driver, -1);
-			}
+			TestUtil.swipeDown(driver, 0.1);
+//			for (int i=0;  i<3;i++) {
+//			    TestUtil.swipeDown(driver, -1);
+//			}
 			String accountNumber_checking = dashboard.getCheckingAccountNumber(driver);
 			if (accountNumber_checking.charAt(4) == '7') {
 				logGeneration.inputLogs(LogType.pass, "Checking Account Found : " + accountNumber_checking,   TestUtil.getScreenshot(driver));

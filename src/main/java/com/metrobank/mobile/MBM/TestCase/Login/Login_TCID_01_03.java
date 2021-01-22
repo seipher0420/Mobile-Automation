@@ -48,23 +48,23 @@ public class Login_TCID_01_03 extends MobileConnection{
 		Thread.sleep(5000);
 		
 		//Script starts here
-//		loginPage.inputUsername(driver, username);
-//		Thread.sleep(5000);
-//		loginPage.inputPassword(driver, password);
-//		Thread.sleep(5000);
-//		loginPage.clickLoginBtn(driver);
-//		Thread.sleep(10000);
-//		
+		loginPage.inputUsername(driver, username);
+		Thread.sleep(5000);
+		loginPage.inputPassword(driver, password);
+		Thread.sleep(5000);
+		loginPage.clickLoginBtn(driver);
+		Thread.sleep(10000);
+		
+		// Validations
+		String err_message = loginPage.getErrorMessagePopUp(driver);
+		logGeneration.inputLogs(LogType.pass, "Login Unsuccessful",  null);
+		logGeneration.inputLogs(LogType.pass, "Error Message : " + err_message,  TestUtil.getScreenshot(driver));
+
+//		CommonMethods.Login(driver, username, password);	
 //		// Validations
 //		String err_message = loginPage.getErrorMessage(driver);
-//		logGeneration.inputLogs(LogType.pass, "Login Unsuccessful",  null);
+//		logGeneration.inputLogs(LogType.pass, "Login Unsuccessful", TestUtil.getScreenshot(driver));
 //		logGeneration.inputLogs(LogType.pass, "Error Message : " + err_message,  TestUtil.getScreenshot(driver));
-
-		CommonMethods.Login(driver, username, password);	
-		// Validations
-		String err_message = loginPage.getErrorMessage(driver);
-		logGeneration.inputLogs(LogType.pass, "Login Unsuccessful", TestUtil.getScreenshot(driver));
-		logGeneration.inputLogs(LogType.pass, "Error Message : " + err_message,  TestUtil.getScreenshot(driver));
 
 		
 

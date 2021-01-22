@@ -184,6 +184,18 @@ public class MyAccountsPage {
 		}
 	}
 	
+	public Boolean isErrorAccountNumberInvalidDisplayed(AppiumDriver<MobileElement> driver){
+		try{
+			if(driver.findElement(By.xpath(propertyFileHandler.GetValue("errMsg_invalid_input_xpath"))).getText() != null){
+				return true;
+			} else {
+				return false;
+			}
+		}catch(Exception e){
+			return false;
+		}
+	}
+	
 	public Boolean isErrorEnter13DigitDisplayed(AppiumDriver<MobileElement> driver){
 		try{
 			if(driver.findElement(By.xpath(propertyFileHandler.GetValue("errMsg_enter_13_digit_xpath"))).getText() != null){

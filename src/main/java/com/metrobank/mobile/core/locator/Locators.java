@@ -8,7 +8,7 @@ public class Locators {
 	// Locator-file location and filename version 7 and lower
 //	public static final String LOGINPAGE = DIR + "/LoginPage/LoginPage.properties";
 //	public static final String DASHBOARD = DIR + "/DashBoard/DashBoard.properties";
-   public static final String ENROLLMENT = DIR + "/Enrollment/Enrollment.properties";
+//  public static final String ENROLLMENT = DIR + "/Enrollment/Enrollment.properties";
 	
 	public static final String TESTDATA =DIR + "/TestCase/TestData/testData.properties";
 	
@@ -16,6 +16,7 @@ public class Locators {
 	public static final String LOGINPAGE = DIR + "/LoginPage/LoginPage_v10.properties";
 	public static final String DASHBOARD = DIR + "/DashBoard/DashBoard_v10.properties";
 	public static final String MYACCOUNTS = DIR + "/MyAccounts/MyAccountsPage_v10.properties";
+	public static final String ENROLLMENT = DIR + "/Enrollment/Enrollment_v10.properties";
 	
 	
 }

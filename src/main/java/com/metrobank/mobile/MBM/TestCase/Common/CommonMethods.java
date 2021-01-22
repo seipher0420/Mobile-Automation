@@ -48,6 +48,17 @@ public class CommonMethods extends MobileConnection {
 			// do nothing
 		}
 		
+		// Check if 'We've logged you out of your MB Online Session' error is encountered
+		if (dashboard.isForcedLogoutErrorDisplayed(driver) == true) {
+			logGeneration.inputLogs(LogType.info, 
+					"We`ve logged you out of your MB Online Session",  TestUtil.getScreenshot(driver));
+			dashboard.clickOkaybutton(driver);
+			TestUtil.waitTime(2);
+		} else {
+			// do nothing
+		}
+		
+		
 		// Validations
 		if (dashboard.VerifySuccessfulLogin(driver) == true) {
 			logGeneration.inputLogs(LogType.pass, "Login Successful.",  null);
